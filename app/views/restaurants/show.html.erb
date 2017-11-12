@@ -11,8 +11,10 @@
     <h3>
       Comments
     </h3>
-    <%= react_component('Comment', {author: 'Jl',
-                                    body: 'Great restaurant',
-                                    rank: 5}) %>
+      <%= react_component('CommentList', {comments: raw(
+          render(
+              template: 'comments/index.json.jbuilder'
+          )
+      )}) %>
   </div>
 </div>

@@ -1,0 +1,1 @@
+json.(comment, :id, :author, :rank, :body)
