@@ -38,6 +38,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'ancestry'
 gem 'rails_admin'
 gem 'foundation-rails'
+gem 'react-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
