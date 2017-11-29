@@ -2,17 +2,20 @@ var CommentList = createReactClass({
 
 
     componentDidMount: function () {
-        Store.addChangeListener(this._onChange);
+        // reference commentsStore to add listener
+        commentsStore.addChangeListener(this._onChange);
     },
 
     componentWillUnmount: function () {
-        Store.removeChangeListener(this._onChange);
+        // reference commentsStore to remove listener
+        commentsStore.removeChangeListener(this._onChange);
     },
 
     render: function(){
+        // console.log('Rendering...');
         return(
           <div>
-            {Store.comments().map(function(comment) {
+            {commentsStore.comments().map(function(comment) {
                 // Take comment and map it to the Comment component
                 return <Comment key={comment.id} {... comment}/>;
             })}
