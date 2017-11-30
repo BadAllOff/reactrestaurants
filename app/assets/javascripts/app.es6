@@ -3,11 +3,6 @@
 // One of the nice things about working with ES6 is that you start to explcitly
 // define what your dependencies are for different classes in you application.
 
-const Constants = {
-    CHANGE_EVENT: 'change',
-    ADD_COMMENT: 'comments.add'
-}
-
 // Store responsible to inform the universe of components
 // that there is in fact a change.
 // It removed from react components and lives in this Store concept
@@ -16,12 +11,14 @@ const Constants = {
 // Likewise, the Store needs a method for emitting those changes
 // to everybody that cares - emitChange
 
+//Now we don't have global vars
+
 // var Store = new _.extend({}, EventEmitter.prototype, {
 class Store extends EventEmitter {
 
     // _comments: [],
     constructor() {
-        super()
+        super();
         this._comments = []
     }
 

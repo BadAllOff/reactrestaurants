@@ -12,6 +12,8 @@
 //
 //= require rails-ujs
 // require turbolinks
+//= require es6/system
+//= require es6/es6-module-loader
 //= require jquery
 //= require foundation
 //= require lodash
