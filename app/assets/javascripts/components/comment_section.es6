@@ -8,6 +8,18 @@ class CommentSection extends React.Component {
         super();
         this.store = new CommentStore();
     }
+    // the get is a getter for the property or the Object you want to get
+    static get childContextTypes() {
+        return {
+            store: PropTypes.object.isRequired
+        }
+    }
+
+    getChildContext() {
+        return {
+            store: this.store
+        }
+    }
 
     render() {
         return <CommentList store={this.store} />;
