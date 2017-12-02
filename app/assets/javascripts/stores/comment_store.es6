@@ -43,7 +43,6 @@ class CommentStore extends EventEmitter {
 
     addComment (comment) {
         this._comments[comment.id] = comment;
-        console.log(this._comments);
     }
 
     comments () {
