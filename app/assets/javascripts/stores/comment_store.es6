@@ -42,7 +42,7 @@ class CommentStore extends EventEmitter {
     }
 
     addComment (comment) {
-        this._comments[comment.id] = comment;
+        this._comments[comment.id || this._comments.length] = comment;
     }
 
     comments () {

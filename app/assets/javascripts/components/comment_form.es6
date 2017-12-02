@@ -1,7 +1,7 @@
 class CommentForm extends React.Component {
     constructor() {
         super();
-        this.defaultState = { id: 1, body: '', author: '' };
+        this.defaultState = { body: '', author: '' };
         this.state = this.defaultState;
     }
 
@@ -15,6 +15,7 @@ class CommentForm extends React.Component {
         event.preventDefault();
         // Using Actions (global variable) is anti-pattern. Get rid of it, using "context"
         Actions.addComment(this.state);
+        this.setState(this.defaultState);
     }
 
     render() {
