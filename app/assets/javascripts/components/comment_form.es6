@@ -1,4 +1,11 @@
 class CommentForm extends React.Component {
+
+    static get contextTypes() {
+        return {
+            actions: PropTypes.func.isRequired
+        }
+    }
+
     constructor() {
         super();
         this.defaultState = { body: '', author: '' };
@@ -14,7 +21,7 @@ class CommentForm extends React.Component {
     submitComment(event) {
         event.preventDefault();
         // Using Actions (global variable) is anti-pattern. Get rid of it, using "context"
-        Actions.addComment(this.state);
+        this.context.actions.addComment(this.state);
         this.setState(this.defaultState);
     }
 

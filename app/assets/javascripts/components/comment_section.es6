@@ -8,17 +8,20 @@ class CommentSection extends React.Component {
     constructor() {
         super();
         this.store = new CommentStore();
+        this.actions = Actions;
     }
     // the get is a getter for the property or the Object you want to get
     static get childContextTypes() {
         return {
-            store: PropTypes.object.isRequired
+            store: PropTypes.object.isRequired,
+            actions: PropTypes.func.isRequired
         }
     }
 
     getChildContext() {
         return {
-            store: this.store
+            store: this.store,
+            actions: this.actions
         }
     }
 
@@ -32,5 +35,4 @@ class CommentSection extends React.Component {
     }
 }
 window.CommentSection = CommentSection;
-window.Actions = Actions;
 export default CommentSection;
