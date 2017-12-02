@@ -22,6 +22,10 @@ class CommentStore extends EventEmitter {
             // payload unwrapped, and we got our actionType, which like is our header
             switch(payload.actionType) {
                 //case of our action names
+                case Constants.SET_COMMENTS:
+                    this.setComments(payload.comments);
+                    this.emitChange();
+                    break;
                 case Constants.ADD_COMMENT:
                     // comment part of the payload, gets passed to the store as a comment
                     // commentsStore.addComment(payload.comment);
@@ -38,6 +42,12 @@ class CommentStore extends EventEmitter {
                 default:
                 // NO_OP
             }
+        });
+    }
+
+    setComments (comments) {
+        comments.forEach( comment => {
+           this.addComment(comment);
         });
     }
 

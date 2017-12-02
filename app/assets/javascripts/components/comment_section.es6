@@ -5,10 +5,11 @@ import CommentForm from 'components/comment_form'
 
 class CommentSection extends React.Component {
 
-    constructor() {
+    constructor(props) {
         super();
         this.store = new CommentStore();
         this.actions = Actions;
+        this.actions.setComments(JSON.parse(props.comments));
     }
     // the get is a getter for the property or the Object you want to get
     static get childContextTypes() {

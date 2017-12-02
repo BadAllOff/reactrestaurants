@@ -15,5 +15,12 @@ class Actions {
             comment: params
         });
     }
+
+    static setComments(params) {
+        AppDispatcher.dispatch({
+            actionType: Constants.SET_COMMENTS,
+            comments: params
+        });
+    }
 }
 export default Actions;
