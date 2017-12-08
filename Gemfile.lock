@@ -84,6 +84,7 @@ GEM
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
+    hirb (0.7.3)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -240,6 +241,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   flux-rails-assets
   foundation-rails (= 5.5.2.1)
+  hirb
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
