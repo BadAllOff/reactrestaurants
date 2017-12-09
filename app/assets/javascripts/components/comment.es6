@@ -1,20 +1,22 @@
+import CommentForm from './comment_form';
+
 class Comment extends React.Component {
     static get propTypes() {
         return {
+            id: PropTypes.number,
             author: PropTypes.string,
             body: PropTypes.string,
-            rank: PropTypes.number,
-            id: PropTypes.number
+            rank: PropTypes.number
         }
     }
 
     render() {
         return (
-            <div id={"comment_" + this.props.id}>
-                <div> Author: {this.props.author}</div>
-                <div> Body: {this.props.body}</div>
-                <div> Rank: {this.props.rank}</div>
-            </div>);
+            <li id={"comment_" + this.props.id}>
+                <p className="right"> by: {this.props.author}</p>
+                <p> Body: {this.props.body}</p>
+                <CommentForm parent_id={this.props.id}/>
+            </li>);
     }
 
 }
