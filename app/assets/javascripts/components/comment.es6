@@ -47,9 +47,9 @@ class Comment extends React.Component {
                 <cite>— by {this.props.author}</cite>
                 <span className='label secondary right'>{this.props.rank}</span>
                 <p>
-                    <button className='button tiny alert' onClick={this.onDownvote.bind(this)}>-1</button>
+                    <button className='button tiny' onClick={this.onUpvote.bind(this)}><i className="fa fa-arrow-up"></i></button>
                     <button className='button tiny secondary' onClick={this.onToggleReply.bind(this)}>{replyText}</button>
-                    <button className='button tiny' onClick={this.onUpvote.bind(this)}>+1</button>
+                    <button className='button tiny alert' onClick={this.onDownvote.bind(this)}><i className="fa fa-arrow-down"></i></button>
                 </p>
                 <CommentForm
                     parent_id={this.props.id}
