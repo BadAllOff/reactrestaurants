@@ -6,16 +6,18 @@ class CommentForm extends React.Component {
         }
     }
 
+    static get PropTypes() {
+        return {
+            isReplying: PropTypes.bool,
+            onCommentSubmitted: PropTypes.func,
+            parent_id: PropTypes.number
+        }
+    }
+
     constructor(props) {
         super();
         this.defaultState = { body: '', author: '' };
         this.state = this.defaultState;
-    }
-
-    onFieldChange(event) {
-        let prop = {};
-        prop[event.target.name] = event.target.value; // { author: event.target.value }
-        this.setState(prop);
     }
 
     submitComment(event) {
@@ -24,6 +26,15 @@ class CommentForm extends React.Component {
         // Using Actions (global variable) is anti-pattern. Get rid of it, using "context"
         this.context.actions.addComment(_.merge(this.state, { parent_id: this.props.parent_id}));
         this.setState(this.defaultState);
+        if (this.props.onCommentSubmitted) {
+            this.props.onCommentSubmitted();
+        }
+    }
+
+    onFieldChange(event) {
+        let prop = {};
+        prop[event.target.name] = event.target.value; // { author: event.target.value }
+        this.setState(prop);
     }
 
     render() {
