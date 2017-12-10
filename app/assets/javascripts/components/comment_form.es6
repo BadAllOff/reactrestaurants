@@ -1,12 +1,11 @@
 class CommentForm extends React.Component {
-
     static get contextTypes() {
         return {
             actions: PropTypes.func.isRequired
         }
     }
 
-    static get PropTypes() {
+    static get propTypes() {
         return {
             isReplying: PropTypes.bool,
             onCommentSubmitted: PropTypes.func,

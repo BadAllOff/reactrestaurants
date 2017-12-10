@@ -7,4 +7,9 @@ class Comment < ActiveRecord::Base
     comment = find(id)
     comment.update_attribute(:rank, comment.rank.to_i + 1)
   end
+
+  def self.downvote id
+    comment = find(id)
+    comment.update_attribute(:rank, comment.rank.to_i - 1)
+  end
 end

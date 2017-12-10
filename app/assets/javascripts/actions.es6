@@ -26,6 +26,17 @@ class Actions {
         });
     }
 
+    static downvoteComment(comment) {
+        Api.put(`/restaurants/1/comments/${comment.id}/downvote`).then( resp => {
+            return resp.json();
+        }).then( comment => {
+            AppDispatcher.dispatch({
+                actionType: Constants.DOWNVOTE_COMMENTS,
+                comment: comment
+            });
+        });
+    }
+
     // Static method calls are made directly on the class and
     // are not callable on instances of the class.
     // Static methods are often used to create utility functions.

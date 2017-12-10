@@ -26,8 +26,12 @@ class Comment extends React.Component {
         this.setState({ isReplying: !this.state.isReplying });
     }
 
-    onUpvote() {
+    onUpvote(event) {
         this.context.actions.upvoteComment(this.props);
+    }
+
+    onDownvote(event) {
+        this.context.actions.downvoteComment(this.props);
     }
 
     onCommentSubmitted(event) {
@@ -43,8 +47,9 @@ class Comment extends React.Component {
                 <cite>— by {this.props.author}</cite>
                 <span className='label secondary right'>{this.props.rank}</span>
                 <p>
-                <button className='button tiny secondary' onClick={this.onToggleReply.bind(this)}>{replyText}</button>
-                <button className='button tiny' onClick={this.onUpvote.bind(this)}>+1</button>
+                    <button className='button tiny alert' onClick={this.onDownvote.bind(this)}>-1</button>
+                    <button className='button tiny secondary' onClick={this.onToggleReply.bind(this)}>{replyText}</button>
+                    <button className='button tiny' onClick={this.onUpvote.bind(this)}>+1</button>
                 </p>
                 <CommentForm
                     parent_id={this.props.id}

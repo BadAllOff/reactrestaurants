@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :restaurants do
     resources :comments do
       put 'upvote', to: 'comments#upvote'
+      put 'downvote', to: 'comments#downvote'
     end
   end
 
