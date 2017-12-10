@@ -31,7 +31,7 @@ class CommentSection extends React.Component {
         // Multiple components need to be contained in one component in order to return
         return <div>
             <CommentForm />
-            <CommentList />
+            <CommentList parent_id={null} />
         </div>
     }
 }
