@@ -30,8 +30,8 @@ class CommentSection extends React.Component {
         // With React you CAN'T have more than 1 root component
         // Multiple components need to be contained in one component in order to return
         return <div>
-            <CommentForm />
-            <CommentList parent_id={null} />
+            <CommentForm isReplying={true} />
+            <CommentList parent_id={this.props.parent_id || null} />
         </div>
     }
 }

@@ -6,7 +6,7 @@ class CommentForm extends React.Component {
         }
     }
 
-    constructor() {
+    constructor(props) {
         super();
         this.defaultState = { body: '', author: '' };
         this.state = this.defaultState;
@@ -27,13 +27,15 @@ class CommentForm extends React.Component {
     }
 
     render() {
-        return <form>
-            <label>Author</label>
-            <input type="text" name="author" onChange={this.onFieldChange.bind(this)} value={this.state.author} />
-            <label>Comment</label>
-            <textarea name="body" value={this.state.body} onChange={this.onFieldChange.bind(this)} />
-            <button onClick={this.submitComment.bind(this)} type="submit"> Submit </button>
-        </form>
+        return <div>
+            <form className={ this.props.isReplying ? '' : 'hide' }>
+                <label>Author</label>
+                <input type="text" name="author" onChange={this.onFieldChange.bind(this)} value={this.state.author} />
+                <label>Comment</label>
+                <textarea name="body" value={this.state.body} onChange={this.onFieldChange.bind(this)} />
+                <button onClick={this.submitComment.bind(this)} type="submit"> Submit </button>
+            </form>
+        </div>
     }
 }
 

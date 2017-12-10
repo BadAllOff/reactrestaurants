@@ -19,12 +19,12 @@ class CommentList extends React.Component{
     }
 
     render(){
-        return <div>
+        return <ul>
             {this.context.store.comments(this.props.parent_id).map(function(comment, i) {
                 // Take comment and map it to the Comment component
                 return <Comment key={i} {... comment}/>;
             })}
-          </div>;
+          </ul>;
     }
 
     _onChange() {
