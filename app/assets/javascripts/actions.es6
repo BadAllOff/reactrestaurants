@@ -7,6 +7,25 @@ import Constants from 'constants'
 import Api from 'api';
 
 class Actions {
+
+    static setComments(params) {
+        AppDispatcher.dispatch({
+            actionType: Constants.SET_COMMENTS,
+            comments: params
+        });
+    }
+
+    static upvoteComment(comment) {
+        Api.put(`/restaurants/1/comments/${comment.id}/upvote`).then( resp => {
+            return resp.json();
+        }).then( comment => {
+            AppDispatcher.dispatch({
+                actionType: Constants.UPVOTE_COMMENTS,
+                comment: comment
+            });
+        });
+    }
+
     // Static method calls are made directly on the class and
     // are not callable on instances of the class.
     // Static methods are often used to create utility functions.
@@ -20,13 +39,6 @@ class Actions {
                 actionType: Constants.ADD_COMMENT,
                 comment: params
             });
-        });
-    }
-
-    static setComments(params) {
-        AppDispatcher.dispatch({
-            actionType: Constants.SET_COMMENTS,
-            comments: params
         });
     }
 }

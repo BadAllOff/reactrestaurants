@@ -15,8 +15,17 @@ class Api {
     }
 
     static post(route, params) {
-        return fetch(`${route}.json`, _.merge({
+        return fetch(`${route}.json`, {
             method: 'post',
+            // credentials - csrf protection
+            credentials: 'include',
+            headers: this.headers()
+        });
+    }
+
+    static put(route, params) {
+        return fetch(`${route}.json`, _.merge({
+            method: 'put',
             // credentials - csrf protection
             credentials: 'include',
             headers: this.headers(),

@@ -26,6 +26,10 @@ class CommentStore extends EventEmitter {
                     this.setComments(payload.comments);
                     this.emitChange();
                     break;
+                case Constants.UPVOTE_COMMENTS:
+                    this.upvote(payload.comment);
+                    this.emitChange();
+                    break;
                 case Constants.ADD_COMMENT:
                     // comment part of the payload, gets passed to the store as a comment
                     // commentsStore.addComment(payload.comment);
@@ -49,6 +53,10 @@ class CommentStore extends EventEmitter {
         comments.forEach( comment => {
            this.addComment(comment);
         });
+    }
+
+    upvote (comment) {
+        this._comments[comment.id].rank++;
     }
 
     addComment (comment) {
