@@ -1,7 +1,7 @@
 class CommentForm extends React.Component {
     static get contextTypes() {
         return {
-            actions: PropTypes.func.isRequired
+            actions: PropTypes.object.isRequired
         }
     }
 
@@ -22,7 +22,6 @@ class CommentForm extends React.Component {
     submitComment(event) {
         event.preventDefault();
         console.log(this.props);
-        // Using Actions (global variable) is anti-pattern. Get rid of it, using "context"
         this.context.actions.addComment(_.merge(this.state, { parent_id: this.props.parent_id}));
         this.setState(this.defaultState);
         if (this.props.onCommentSubmitted) {

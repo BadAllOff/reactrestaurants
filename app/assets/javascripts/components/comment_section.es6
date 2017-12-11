@@ -8,14 +8,14 @@ class CommentSection extends React.Component {
     constructor(props) {
         super();
         this.store = new CommentStore();
-        this.actions = Actions;
+        this.actions = new Actions(props.restaurantId);
         this.actions.setComments(JSON.parse(props.comments));
     }
     // the get is a getter for the property or the Object you want to get
     static get childContextTypes() {
         return {
             store: PropTypes.object.isRequired,
-            actions: PropTypes.func.isRequired
+            actions: PropTypes.object.isRequired
         }
     }
 
@@ -31,7 +31,7 @@ class CommentSection extends React.Component {
         // Multiple components need to be contained in one component in order to return
         return <div>
             <CommentForm isReplying={true} />
-            <CommentList parent_id={this.props.parent_id || null} />
+            <CommentList parent_id={null} />
         </div>
     }
 }

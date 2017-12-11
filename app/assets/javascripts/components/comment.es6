@@ -4,7 +4,7 @@ import CommentList from "./comment_list";
 class Comment extends React.Component {
     static get contextTypes() {
         return {
-            actions: PropTypes.func.isRequired
+            actions: PropTypes.object.isRequired
         }
     }
 
